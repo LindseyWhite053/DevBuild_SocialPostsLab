@@ -1,0 +1,13 @@
+<div>
+  <button id="newPost"(click)="showNewPostForm()">New Thought</button>
+    <div *ngIf="showForm">
+        Title: <input type="text" [(ngModel)]="newTitle"/>
+        Thought: <input type="text" [(ngModel)]="newThought"/>
+        <button (click)="add()">Add</button>
+        <button (click)="cancel()">Cancel</button>
+    </div>
+
+    <ng-container *ngFor="let post of PostSrv.get()">
+        <app-single-post [OnePost]="post" (remove)="removeItem($event)"></app-single-post>
+    </ng-container>
+</div>

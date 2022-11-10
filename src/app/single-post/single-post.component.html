@@ -1,0 +1,18 @@
+<div>
+    <div *ngIf="!editMode">
+    <div id="post">
+        <h2>{{ OnePost.title }}</h2>
+        {{ OnePost.thought }}        
+    </div>
+
+    <button (click)="edit()">Edit</button>
+    <button (click)="delete()">Delete</button>
+    </div>
+
+    <div *ngIf="editMode">
+        <input type="text" [(ngModel)]="changeTitle"/>
+        <input type="text" [(ngModel)]="changeThought"/>
+        <button (click)="save()">Save Changes</button>
+        <button (click)="cancel()">Cancel</button>
+    </div>
+</div>
